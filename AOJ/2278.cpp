@@ -127,6 +127,6 @@ void mainmain(){
 
 signed main() {
 	ios_base::sync_with_stdio(false);
-  	// cout<<fixed<<setprecision(10);
+  	cout<<fixed<<setprecision(10);
     mainmain();
 }
