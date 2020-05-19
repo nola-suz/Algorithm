@@ -1,0 +1,563 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'a'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=a",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "a",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'a'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=a",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "a",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'b'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=b",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "b",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'b'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=b",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "b",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'c'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=c",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "c",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'c'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=c",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "c",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'd'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=d",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "d",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'd'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=d",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "d",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'e'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=e",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "e",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'e'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=e",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "e",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'f'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=f",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "f",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'f'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=f",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "f",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'g'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=g",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "g",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'g'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=g",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "g",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'h'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=h",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "h",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'h'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=h",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "h",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'i'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=i",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "i",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'i'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=i",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "i",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'j'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=j",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "j",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'j'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=j",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "j",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'k'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=k",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "k",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'k'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=k",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "k",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'l'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=l",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "l",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'l'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=l",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "l",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'm'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=m",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "m",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'm'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=m",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "m",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'n'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=n",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "n",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'n'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=n",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "n",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'o'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=o",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "o",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'o'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=o",
+                    "--package=past201912-open"
+                ],
+                "filter": {
+                    "name": "o",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
