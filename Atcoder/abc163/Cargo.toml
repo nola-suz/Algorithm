@@ -1,0 +1,13 @@
+[package]
+name = "abc163"
+version = "0.1.0"
+authors = ["nola-suz <belljguis4@gmail.com>"]
+edition = "2018"
+
+# dependencies added to new project
+[dependencies]
+competitive = { git = "https://github.com/nola-suz/competitive-rust.git" }
+
+[profile.release]
+lto = true
+panic = 'abort'
