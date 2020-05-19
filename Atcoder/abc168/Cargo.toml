@@ -1,0 +1,22 @@
+[package]
+name = "abc168"
+version = "0.1.0"
+authors = ["nola"]
+edition = "2018"
+
+# dependencies added to new project
+[dependencies]
+# AtCoder 2019年言語アップデート以降に使用できるクレート
+
+# 各クレートの説明
+# https://github.com/rust-lang-ja/atcoder-rust-resources/wiki/2020-Update
+
+# 数値型の抽象化、多倍長整数、複素数、分数、及び整数型の拡張
+num = "=0.2.1"
+
+# 競技プログラミングの入出力サポートその1
+proconio = { version = "=0.3.6", features = ["derive"] }
+
+[profile.release]
+lto = true
+panic = 'abort'
