@@ -1,0 +1,16 @@
+[package]
+name = "agc020"
+version = "0.1.0"
+authors = ["nola"]
+edition = "2018"
+
+# dependencies added to new project
+[dependencies]
+# 競技プログラミングの入出力サポートその1
+proconio = { version = "=0.3.6", features = ["derive"] }
+# 競技プログラミングの入出力サポートその2
+text_io = "=0.1.8"
+
+[profile.release]
+lto = true
+panic = 'abort'
