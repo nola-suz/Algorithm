@@ -105,10 +105,22 @@ fn choice(res: &[Ad], req: &Request, reqs: &[Request]) -> Ad {
 
     loop {
         let next = get_next(res, &ret, req.r, reqs, req);
-        if next == ret {
-            return ret;
+        if next != ret {
+            ret = next;
+            continue;
         }
-        ret = next;
+
+        let next2 = get_next2(res, &ret, req.r, reqs, req);
+        if next2 != ret {
+            ret = next2;
+            continue;
+        }
+
+        // println!("next: {} x {} = {}", next.rd.x - next.lu.x, next.rd.y - next.lu.y, next.get_area());
+        // println!("next2: {} x {} = {}", next2.rd.x - next2.lu.x, next2.rd.y - next2.lu.y, next2.get_area());
+        // println!("ret: {} x {} = {}", ret.rd.x - ret.lu.x, ret.rd.y - ret.lu.y, ret.get_area());
+        // println!("area: {}, id: {}", req.r, req.id);
+        return ret;
     }
 }
 
@@ -156,6 +168,116 @@ fn get_next(res: &[Ad], ad: &Ad, area: i32, reqs: &[Request], req: &Request) -> 
                 candidate1.push(down_expand);
             } else {
                 candidate2.push(down_expand);
+            }
+        }
+    }
+
+    candidate1.sort_by_key(|&x| x.get_area().sub(area).abs());
+    if let Some(fi) = candidate1.first() {
+        if *fi != ad.clone() {
+            return *fi;
+        }
+    }
+    candidate2.sort_by_key(|&x| x.get_area().sub(area).abs());
+    *candidate2.first().unwrap()
+}
+
+fn get_next2(res: &[Ad], ad: &Ad, area: i32, reqs: &[Request], req: &Request) -> Ad {
+    if ad.get_area() <= area {
+        return ad.clone();
+    }
+
+    let mut candidate1 = vec![ad.clone()];
+    let mut candidate2 = vec![ad.clone()];
+    {
+        let mut left_expand = ad.clone();
+        left_expand.lu.x -= 1;
+
+        left_expand.lu.y += 1;
+        if is_inside(&left_expand) && check_ads(res, &left_expand) {
+            if check_ad_no_wrap(&left_expand, reqs, req) {
+                candidate1.push(left_expand.clone());
+            } else {
+                candidate2.push(left_expand.clone());
+            }
+        }
+        left_expand.lu.y -= 1;
+        left_expand.rd.y -= 1;
+        if is_inside(&left_expand) && check_ads(res, &left_expand) {
+            if check_ad_no_wrap(&left_expand, reqs, req) {
+                candidate1.push(left_expand.clone());
+            } else {
+                candidate2.push(left_expand.clone());
+            }
+        }
+    }
+    {
+        let mut up_expand = ad.clone();
+        up_expand.lu.y -= 1;
+
+        up_expand.lu.x += 1;
+        if is_inside(&up_expand) && check_ads(res, &up_expand) {
+            if check_ad_no_wrap(&up_expand, reqs, req) {
+                candidate1.push(up_expand.clone());
+            } else {
+                candidate2.push(up_expand.clone());
+            }
+        }
+
+        up_expand.lu.x -= 1;
+        up_expand.rd.x -= 1;
+
+        if is_inside(&up_expand) && check_ads(res, &up_expand) {
+            if check_ad_no_wrap(&up_expand, reqs, req) {
+                candidate1.push(up_expand.clone());
+            } else {
+                candidate2.push(up_expand.clone());
+            }
+        }
+    }
+    {
+        let mut right_expand = ad.clone();
+        right_expand.rd.x += 1;
+
+        right_expand.lu.y += 1;
+        if is_inside(&right_expand) && check_ads(res, &right_expand) {
+            if check_ad_no_wrap(&right_expand, reqs, req) {
+                candidate1.push(right_expand.clone());
+            } else {
+                candidate2.push(right_expand.clone());
+            }
+        }
+        right_expand.lu.y -= 1;
+        right_expand.rd.y -= 1;
+        if is_inside(&right_expand) && check_ads(res, &right_expand) {
+            if check_ad_no_wrap(&right_expand, reqs, req) {
+                candidate1.push(right_expand.clone());
+            } else {
+                candidate2.push(right_expand.clone());
+            }
+        }
+    }
+    {
+        let mut down_expand = ad.clone();
+        down_expand.rd.y += 1;
+
+        down_expand.lu.x += 1;
+        if is_inside(&down_expand) && check_ads(res, &down_expand) {
+            if check_ad_no_wrap(&down_expand, reqs, req) {
+                candidate1.push(down_expand.clone());
+            } else {
+                candidate2.push(down_expand.clone());
+            }
+        }
+
+        down_expand.lu.x -= 1;
+        down_expand.rd.x -= 1;
+
+        if is_inside(&down_expand) && check_ads(res, &down_expand) {
+            if check_ad_no_wrap(&down_expand, reqs, req) {
+                candidate1.push(down_expand.clone());
+            } else {
+                candidate2.push(down_expand.clone());
             }
         }
     }
