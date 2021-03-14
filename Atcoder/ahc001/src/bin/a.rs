@@ -49,6 +49,12 @@ struct Request {
     id: usize,
 }
 
+impl PartialEq for Request {
+    fn eq(&self, other: &Self) -> bool {
+        self.id == other.id
+    }
+}
+
 fn main() {
     input! {
         n: usize,
@@ -77,7 +83,7 @@ fn main() {
     ];
 
     for &req in requests.iter() {
-        res[req.id] = choice(&res, &req);
+        res[req.id] = choice(&res, &req, &requests);
     }
 
     for &r in res.iter() {
@@ -85,7 +91,7 @@ fn main() {
     }
 }
 
-fn choice(res: &[Ad], req: &Request) -> Ad {
+fn choice(res: &[Ad], req: &Request, reqs: &[Request]) -> Ad {
     let mut ret = Ad {
         lu: req.pos.clone(),
         rd: req.pos.clone(),
@@ -98,7 +104,7 @@ fn choice(res: &[Ad], req: &Request) -> Ad {
     }
 
     loop {
-        let next = get_next(res, &ret, req.r);
+        let next = get_next(res, &ret, req.r, reqs, req);
         if next == ret {
             return ret;
         }
@@ -106,39 +112,62 @@ fn choice(res: &[Ad], req: &Request) -> Ad {
     }
 }
 
-fn get_next(res: &[Ad], ad: &Ad, area: i32) -> Ad {
-    let mut candidate = vec![ad.clone()];
+fn get_next(res: &[Ad], ad: &Ad, area: i32, reqs: &[Request], req: &Request) -> Ad {
+    let mut candidate1 = vec![ad.clone()];
+    let mut candidate2 = vec![ad.clone()];
     {
         let mut left_expand = ad.clone();
         left_expand.lu.x -= 1;
         if is_inside(&left_expand) && check_ads(res, &left_expand) {
-            candidate.push(left_expand);
+            if check_ad_no_wrap(&left_expand, reqs, req) {
+                candidate1.push(left_expand);
+            } else {
+                candidate2.push(left_expand);
+            }
         }
     }
     {
         let mut up_expand = ad.clone();
         up_expand.lu.y -= 1;
         if is_inside(&up_expand) && check_ads(res, &up_expand) {
-            candidate.push(up_expand);
+            if check_ad_no_wrap(&up_expand, reqs, req) {
+                candidate1.push(up_expand);
+            } else {
+                candidate2.push(up_expand);
+            }
         }
     }
     {
         let mut right_expand = ad.clone();
         right_expand.rd.x += 1;
         if is_inside(&right_expand) && check_ads(res, &right_expand) {
-            candidate.push(right_expand);
+            if check_ad_no_wrap(&right_expand, reqs, req) {
+                candidate1.push(right_expand);
+            } else {
+                candidate2.push(right_expand);
+            }
         }
     }
     {
         let mut down_expand = ad.clone();
         down_expand.rd.y += 1;
         if is_inside(&down_expand) && check_ads(res, &down_expand) {
-            candidate.push(down_expand);
+            if check_ad_no_wrap(&down_expand, reqs, req) {
+                candidate1.push(down_expand);
+            } else {
+                candidate2.push(down_expand);
+            }
         }
     }
 
-    candidate.sort_by_key(|&x| x.get_area().sub(area).abs());
-    *candidate.first().unwrap()
+    candidate1.sort_by_key(|&x| x.get_area().sub(area).abs());
+    if let Some(fi) = candidate1.first() {
+        if *fi != ad.clone() {
+            return *fi;
+        }
+    }
+    candidate2.sort_by_key(|&x| x.get_area().sub(area).abs());
+    *candidate2.first().unwrap()
 }
 
 fn is_inside(ad: &Ad) -> bool {
@@ -148,6 +177,25 @@ fn is_inside(ad: &Ad) -> bool {
 fn check_ads(res: &[Ad], ad: &Ad) -> bool {
     for &r in res.iter() {
         if !check_ad(&r, &ad) {
+            return false;
+        }
+    }
+
+    true
+}
+
+fn check_ad_no_wrap(ad: &Ad, reqs: &[Request], req: &Request) -> bool {
+    for &r in reqs.iter() {
+        if *req == r {
+            continue;
+        }
+
+        let tmp = Ad {
+            lu: r.pos.clone(),
+            rd: r.pos.clone().add(1, 1),
+        };
+
+        if !check_ad(&tmp, ad) {
             return false;
         }
     }
