@@ -1,0 +1,20 @@
+[package]
+name = "ahc001"
+version = "0.1.0"
+authors = ["nola <belljguis4@gmail.com>"]
+edition = "2018"
+
+[package.metadata.cargo-compete]
+config = "../compete.toml"
+
+[package.metadata.cargo-compete.bin]
+a = { name = "ahc001-a", problem = { platform = "atcoder", contest = "ahc001", index = "A", url = "https://atcoder.jp/contests/ahc001/tasks/ahc001_a" } }
+
+[[bin]]
+name = "ahc001-a"
+path = "src/bin/a.rs"
+[dependencies]
+# 競技プログラミングの入出力サポートその1
+proconio = { version = "=0.3.6", features = ["derive"] }
+# 競技プログラミングの入出力サポートその2
+text_io = "=0.1.8"
